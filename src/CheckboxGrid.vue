@@ -5,13 +5,12 @@ import CheckboxInput from './CheckboxInput.vue'
 const baseTotal = ref(3806)
 const age = ref(24)
 const n_checked = computed(() => age.value * 52)
-const ttl = computed(() => 3806 - n_checked.value)
+const ttl = computed(() => Math.max(3806 - n_checked.value, 0))
 const sleep = ref(false) // 33%
 const work = ref(false) // 12%
 
 const totalLength = computed(() => {
   let v = baseTotal.value
-  console.log(ttl.value)
   if (sleep.value) v -= ttl.value / 3
   if (work.value) v -= ttl.value * 0.12
   return Math.max(0, Math.round(v))
@@ -45,6 +44,7 @@ const array = computed(() =>
       />
     </div>
   </div>
+  <div v-if="!ttl" class="checkbox_grid_footer_text">you lived longer than expected :)</div>
 </template>
 
 <style scoped>
@@ -86,5 +86,10 @@ const array = computed(() =>
 .checkbox_grid_header_buttons_container {
   display: flex;
   gap: 20px;
+}
+
+.checkbox_grid_footer_text {
+  margin-top: 5px;
+  justify-self: center;
 }
 </style>

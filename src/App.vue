@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BottomText from './BottomText.vue'
 import CheckboxGrid from './CheckboxGrid.vue'
 </script>
 
@@ -9,6 +10,7 @@ import CheckboxGrid from './CheckboxGrid.vue'
       <img src="/skull.png" alt="skull" />
     </div>
     <CheckboxGrid />
+    <BottomText />
   </div>
 </template>
 

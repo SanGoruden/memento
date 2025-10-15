@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import CheckboxInput from './CheckboxInput.vue'
+// import Progressbar from './ProgressBar.vue'
 
 const baseTotal = ref(3806)
 const age = ref(24)
@@ -44,6 +45,9 @@ const array = computed(() =>
       />
     </div>
   </div>
+  <!-- <div class="progress_wrapper">
+    <Progressbar :percentage="42" />
+  </div> -->
   <div v-if="!ttl" class="checkbox_grid_footer_text">you lived longer than expected :)</div>
 </template>
 
@@ -91,5 +95,9 @@ const array = computed(() =>
 .checkbox_grid_footer_text {
   margin-top: 5px;
   justify-self: center;
+}
+
+.progress_wrapper {
+  margin-top: 10px;
 }
 </style>
